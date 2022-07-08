@@ -36,7 +36,15 @@
     fill: #0f172a;
   }
 
+  .moon-svg:hover {
+    fill: var(--accent-color);
+  }
+
   .sun-svg {
     fill: #e2e8f0;
+  }
+
+  .sun-svg:hover {
+    fill: var(--accent-color);
   }
 </style>
