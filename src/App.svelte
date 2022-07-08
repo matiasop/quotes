@@ -1,16 +1,25 @@
 <script lang="ts">
-	import DarkModeToggler from "./components/DarkModeToggler.svelte";
+	import { Router, Route } from "svelte-navigator";
+	import NavBar from "./components/NavBar.svelte";
 </script>
 
 <main>
-	<h1>Hello World</h1>
-	<DarkModeToggler />
+	<Router>
+		<NavBar />
+
+		<Route path="/">
+			<h1>Home</h1>
+		</Route>
+		<Route path="about">
+			<p>About</p>
+		</Route>
+	</Router>
 </main>
 
 <style>
 	:root {
-		--bg-color: #ffffff;
-		--text-color: #000000;
+		--bg-color: white;
+		--text-color: #0f172a;
 	}
 
 	:global(body) {
@@ -19,7 +28,7 @@
 	}
 
 	:global(body.dark-mode) {
-		--bg-color: #000000;
-		--text-color: #ffffff;
+		--bg-color: #0f172a;
+		--text-color: #e2e8f0;
 	}
 </style>
