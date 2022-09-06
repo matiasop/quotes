@@ -1,6 +1,7 @@
 <script lang="ts">
-  export let allBooks;
-  export let filteredBooks;
+  import type Metadata from "../types/Metadata";
+  export let allBooks: Metadata[];
+  export let filteredBooks: Metadata[];
   let searchTerm: string = "";
 
   const regularize = (text: string): string => {
@@ -13,7 +14,7 @@
   $: filteredBooks = allBooks.filter((book) => {
     const regularizedSearchTerm = regularize(searchTerm);
     return (
-      regularize(book.title).includes(regularizedSearchTerm) ||
+      regularize(book.book_title).includes(regularizedSearchTerm) ||
       regularize(book.author).includes(regularizedSearchTerm)
     );
   });

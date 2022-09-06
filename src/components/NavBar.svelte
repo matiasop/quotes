@@ -10,6 +10,9 @@
     </div>
     <div class="nav-right">
       <div class="link-wrapper">
+        <Link to="books" class="link">Books</Link>
+      </div>
+      <div class="link-wrapper">
         <Link to="about" class="link">About</Link>
       </div>
       <div class="vr" />
