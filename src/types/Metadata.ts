@@ -1,6 +1,6 @@
 type Metadata = {
   'author': string,
-  'book_author': string,
+  'book_title': string,
   'isbn_10': string,
   'isbn_13': string,
   'language': string,
