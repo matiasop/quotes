@@ -1,7 +1,8 @@
 enum SortOption {
   Title,
   Author,
-  Date,
+  PublishedDate,
+  ReadingDate,
 }
 
 export default SortOption;
