@@ -1,6 +1,8 @@
+import type Metadata from "./Metadata"
+
 type BookList = {
-  'title': String,
-  'id': Number,
+  title: string;
+  data: Metadata;
 }
 
 export default BookList;
