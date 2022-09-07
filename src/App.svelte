@@ -3,6 +3,8 @@
   import NavBar from "./components/NavBar.svelte";
   import Footer from "./components/Footer.svelte";
   import Books from "./pages/Books.svelte";
+  import Quotes from "./pages/Quotes.svelte";
+  import Quote from "./pages/Quote.svelte";
 </script>
 
 <main>
@@ -17,6 +19,12 @@
         <Route path="books">
           <Books />
         </Route>
+        <Route path="quotes/:bookId" component={Quotes} primary={false} />
+        <Route
+          path="quote/:bookId/:quoteId"
+          component={Quote}
+          primary={false}
+        />
         <Route path="about">
           <p class="body-text">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
