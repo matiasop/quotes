@@ -1,17 +1,16 @@
 <script lang="ts">
-  import quotesComplete from "../data/quotes_complete.json";
+  import { Link } from "svelte-navigator";
+
   import booksMetadata from "../data/books_metadata.json";
   import getDataFromJSON from "../utils/getDataFromJSON";
 
   import SearchBar from "../components/SearchBar.svelte";
 
-  import type Quote from "../types/Quote";
   import type Metadata from "../types/Metadata";
+  import type BookList from "../types/BookList";
 
-  const quotes: Quote[] = getDataFromJSON<Quote>(quotesComplete);
-  const books: Metadata[] = getDataFromJSON<Metadata>(booksMetadata);
-  let filteredBooks: Metadata[] = [];
-  $: console.log(filteredBooks);
+  const books: BookList[] = getDataFromJSON<Metadata>(booksMetadata);
+  let filteredBooks: BookList[] = [];
 </script>
 
 <h1>Books</h1>
@@ -19,7 +18,9 @@
 
 {#each filteredBooks as book}
   <div>
-    <p>{book.book_title} {book.author}</p>
-    <img src={book.thumbnail} alt={book.book_title} />
+    <Link to="/quotes/{book.title}">
+      <p>{book.data.book_title} {book.data.author}</p>
+      <img src={book.data.thumbnail} alt={book.data.book_title} />
+    </Link>
   </div>
 {/each}
