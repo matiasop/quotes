@@ -54,6 +54,7 @@
     background: var(--bg-color);
     color: var(--text-color);
     margin-top: 65px;
+    transition: background 0.5s;
   }
 
   :global(body.dark-mode) {
@@ -77,5 +78,7 @@
 
   #content-wrap {
     padding-bottom: 4rem; /* Footer height */
+    display: flex;
+    justify-content: center;
   }
 </style>

@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { Link } from "svelte-navigator";
+  import { link } from "svelte-navigator";
+  import { fade } from "svelte/transition";
 
   import quotesComplete from "../data/quotes_complete.json";
   import booksMetadata from "../data/books_metadata.json";
@@ -12,6 +13,9 @@
   import SortOption from "../types/SortOption";
 
   import SearchBar from "../components/SearchBar.svelte";
+
+  const emptyBookCoverURL =
+    "https://drupal.nypl.org/sites-drupal/default/files/blogs/sJ3CT4V.gif";
 
   const getReadingDate = (title: string, quotesComplete): string => {
     const quote: Quote = quotesComplete[title][0];
@@ -60,22 +64,125 @@
   let filteredBooks: BookList[] = [];
 </script>
 
-<h1>Books</h1>
-<SearchBar allBooks={books} bind:filteredBooks />
-<select bind:value={sortBy}>
-  <option value={SortOption.Title}>Title</option>
-  <option value={SortOption.Author}>Author</option>
-  <option value={SortOption.ReadingDate}>Reading Date</option>
-  <option value={SortOption.PublishedDate}>Published Date</option>
-</select>
-<span>Reverse:</span>
-<input type="checkbox" bind:checked={reverse} />
-
-{#each filteredBooks as book}
-  <div>
-    <Link to="/quotes/{book.title}">
-      <p>{book.data.book_title} {book.data.author}</p>
-      <img src={book.data.thumbnail} alt={book.data.book_title} />
-    </Link>
+<div class="books-container">
+  <h1 class="title">Books</h1>
+  <div class="books-filter">
+    <SearchBar allBooks={books} bind:filteredBooks />
+    <select bind:value={sortBy}>
+      <option value={SortOption.Title}>Title</option>
+      <option value={SortOption.Author}>Author</option>
+      <option value={SortOption.ReadingDate}>Reading Date</option>
+      <option value={SortOption.PublishedDate}>Published Date</option>
+    </select>
   </div>
-{/each}
+  <div class="reverse">
+    <span id="reverse-span">Reverse:</span>
+    <input id="reverse-input" type="checkbox" bind:checked={reverse} />
+  </div>
+
+  {#key books}
+    <div class="books-links-container" in:fade>
+      {#each filteredBooks as book}
+        <a class="book-link" href="/quotes/{book.title}" use:link>
+          <div class="book-info">
+            <h3 class="book-title">{book.data.book_title}</h3>
+            <p class="book-details">{book.data.author}</p>
+            <p class="book-details">Published: {book.data.published_date}</p>
+          </div>
+          <div class="book-cover-container">
+            {#if book.data.thumbnail !== ""}
+              <img
+                class="book-cover"
+                src={book.data.thumbnail}
+                alt={book.data.book_title}
+              />
+            {:else}
+              <img
+                class="book-cover"
+                src={emptyBookCoverURL}
+                alt={book.data.book_title}
+              />
+            {/if}
+          </div>
+        </a>
+      {/each}
+    </div>
+  {/key}
+</div>
+
+<style>
+  .title {
+    display: flex;
+    justify-content: center;
+  }
+  .books-container {
+    max-width: 90rem;
+  }
+
+  .books-links-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
+  .book-link {
+    border: solid #888 1px;
+    border-radius: 1%;
+    width: 200px;
+    margin: 1rem 1rem;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .book-link:hover {
+    border: solid var(--accent-color) 1px;
+  }
+
+  .book-info {
+    color: var(--text-color);
+  }
+
+  .title {
+    color: var(--text-color);
+    font-family: var(--header-font);
+  }
+
+  .book-title {
+    font-family: var(--header-font);
+  }
+
+  .book-details {
+    font-size: small;
+    margin: 0.5rem 0;
+    color: #888;
+  }
+
+  .book-cover-container {
+    padding: 0.5rem 1rem;
+  }
+
+  .book-cover {
+    min-width: 100%;
+  }
+
+  .books-filter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .reverse {
+    display: flex;
+    justify-content: center;
+  }
+
+  #reverse-input {
+    margin: 0 1rem;
+    transform: scale(1.5);
+  }
+</style>
