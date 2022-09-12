@@ -8,7 +8,6 @@
   import type Quote from "../types/Quote";
   import type Metadata from "../types/Metadata";
   import type BookList from "../types/BookList";
-  import { dataset_dev } from "svelte/internal";
 
   export let bookId: string;
   const quotes: Quote[] = quotesComplete[bookId];
@@ -21,16 +20,18 @@
     <h1 class="title">{book.data.book_title}</h1>
     <div class="book-details-container">
       <div class="book-details">
+        <p class="info">Author: {book.data.author}</p>
         <p class="info">Pages: {book.data.page_count}</p>
-        <p class="info">Published Date: {book.data.published_date}</p>
-      </div>
-      <div class="book-details">
         <p class="info">Language: {book.data.language.toUpperCase()}</p>
+      </div>
+      <div class="book-details align-end">
+        <p />
         {#if book.data.isbn_10 !== ""}
           <p class="info">ISBN: {book.data.isbn_10}</p>
         {:else}
           <p class="info">ISBN: {book.data.isbn_13}</p>
         {/if}
+        <p class="info">Published Date: {book.data.published_date}</p>
       </div>
     </div>
     <div class="book-cover-container">
@@ -65,6 +66,10 @@
     align-items: center;
   }
 
+  .align-end {
+    text-align: end;
+  }
+
   .book-info {
     color: var(--text-color);
     max-width: 420px;
@@ -74,6 +79,9 @@
     font-size: 1rem;
     margin: 0.5rem 0;
     color: #888;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   .book-details-container {
