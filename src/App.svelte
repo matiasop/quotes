@@ -13,9 +13,6 @@
       <div id="content-wrap">
         <NavBar />
 
-        <Route path="/">
-          <h1 class="body-text">Home Page</h1>
-        </Route>
         <Route path="books">
           <Books />
         </Route>
@@ -25,14 +22,6 @@
           component={Quote}
           primary={false}
         />
-        <Route path="about">
-          <p class="body-text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
-            aliquam vitae id corrupti explicabo accusamus et amet tempora?
-            Dicta, doloremque a. Quos similique fugiat, deserunt sit voluptates
-            reiciendis
-          </p>
-        </Route>
       </div>
 
       <Footer />
