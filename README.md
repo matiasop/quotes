@@ -2,7 +2,9 @@
 
 Book quotes app.
 
-## To Do
+## How to Deploy
 
-- Search books by title or author.
-- Sort books by title, author or date.
+- Update files in `src/data` and run the following commands:
+- `yarn build`
+- `git commit and push`
+- `git subtree push --prefix public/ origin gh-pages`
