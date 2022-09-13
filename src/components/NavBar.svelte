@@ -6,11 +6,11 @@
 <div class="nav-container">
   <nav class="navbar">
     <div class="header-link-wrapper">
-      <Link to="/" class="link">Book Quotes</Link>
+      <Link to="books" class="link">Book Quotes</Link>
     </div>
     <div class="nav-right">
       <div class="link-wrapper">
-        <Link to="about" class="link">About</Link>
+        <Link to="books" class="link">Books</Link>
       </div>
       <div class="vr" />
       <DarkModeToggler />
