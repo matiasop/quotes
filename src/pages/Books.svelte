@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { link } from "svelte-navigator";
   import { fade } from "svelte/transition";
 
   import quotesComplete from "../data/quotes_complete.json";
@@ -83,7 +82,7 @@
   {#key books}
     <div class="books-links-container" in:fade>
       {#each filteredBooks as book}
-        <a class="book-link" href="/quotes/{book.title}" use:link>
+        <a class="book-link" href="#/quotes/{book.title}">
           <div class="book-info">
             <h3 class="book-title">{book.data.book_title}</h3>
             <p class="book-details">{book.data.author}</p>
