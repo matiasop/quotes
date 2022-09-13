@@ -13,6 +13,9 @@
   const quote: Quote = quotesComplete[bookId][quoteId];
   const books: BookList[] = getDataFromJSON<Metadata>(booksMetadata);
   const book: BookList = books.find((b) => b.title === bookId);
+
+  const emptyBookCoverURL =
+    "https://drupal.nypl.org/sites-drupal/default/files/blogs/sJ3CT4V.gif";
 </script>
 
 <div class="quote">
@@ -20,7 +23,19 @@
   <h2 class="title">Quote #{quoteId}</h2>
   <div class="info-flex">
     <div class="book-cover-container">
-      <img src={book.data.thumbnail} alt={book.data.book_title} />
+      {#if book.data.thumbnail !== ""}
+        <img
+          class="book-cover"
+          src={book.data.thumbnail}
+          alt={book.data.book_title}
+        />
+      {:else}
+        <img
+          class="book-cover"
+          src={emptyBookCoverURL}
+          alt={book.data.book_title}
+        />
+      {/if}
     </div>
     <div class="quote-info">
       <p class="info">Author: {quote.author}</p>
