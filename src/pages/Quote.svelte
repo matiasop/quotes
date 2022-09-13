@@ -7,8 +7,9 @@
   import type Metadata from "../types/Metadata";
   import type BookList from "../types/BookList";
 
-  export let bookId: string;
-  export let quoteId: string;
+  export let params;
+  const bookId: string = params.bookId;
+  const quoteId: string = params.quoteId;
 
   const quote: Quote = quotesComplete[bookId][quoteId];
   const books: BookList[] = getDataFromJSON<Metadata>(booksMetadata);
@@ -18,38 +19,44 @@
     "https://drupal.nypl.org/sites-drupal/default/files/blogs/sJ3CT4V.gif";
 </script>
 
-<div class="quote">
-  <h1 class="title">{quote.book_title}</h1>
-  <h2 class="title">Quote #{quoteId}</h2>
-  <div class="info-flex">
-    <div class="book-cover-container">
-      {#if book.data.thumbnail !== ""}
-        <img
-          class="book-cover"
-          src={book.data.thumbnail}
-          alt={book.data.book_title}
-        />
-      {:else}
-        <img
-          class="book-cover"
-          src={emptyBookCoverURL}
-          alt={book.data.book_title}
-        />
-      {/if}
+<div class="quote-flex">
+  <div class="quote">
+    <h1 class="title">{quote.book_title}</h1>
+    <h2 class="title">Quote #{quoteId}</h2>
+    <div class="info-flex">
+      <div class="book-cover-container">
+        {#if book.data.thumbnail !== ""}
+          <img
+            class="book-cover"
+            src={book.data.thumbnail}
+            alt={book.data.book_title}
+          />
+        {:else}
+          <img
+            class="book-cover"
+            src={emptyBookCoverURL}
+            alt={book.data.book_title}
+          />
+        {/if}
+      </div>
+      <div class="quote-info">
+        <p class="info">Author: {quote.author}</p>
+        <p class="info">Published Date: {book.data.published_date}</p>
+        <p class="info">Reading Date: {quote.date} {quote.time}</p>
+        <p class="info">Position: {quote.initial_pos}-{quote.final_pos}</p>
+      </div>
     </div>
-    <div class="quote-info">
-      <p class="info">Author: {quote.author}</p>
-      <p class="info">Published Date: {book.data.published_date}</p>
-      <p class="info">Reading Date: {quote.date} {quote.time}</p>
-      <p class="info">Position: {quote.initial_pos}-{quote.final_pos}</p>
+    <div class="quote-text">
+      <p>"{quote.quote}"</p>
     </div>
-  </div>
-  <div class="quote-text">
-    <p>"{quote.quote}"</p>
   </div>
 </div>
 
 <style>
+  .quote-flex {
+    display: flex;
+    justify-content: center;
+  }
   .quote {
     border: solid #888 1px;
     border-radius: 1%;

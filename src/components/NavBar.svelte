@@ -1,16 +1,15 @@
 <script>
-  import { Link } from "svelte-navigator";
   import DarkModeToggler from "../components/DarkModeToggler.svelte";
 </script>
 
 <div class="nav-container">
   <nav class="navbar">
     <div class="header-link-wrapper">
-      <Link to="books" class="link">Book Quotes</Link>
+      <a href="#/" class="link">Book Quotes</a>
     </div>
     <div class="nav-right">
       <div class="link-wrapper">
-        <Link to="books" class="link">Books</Link>
+        <a href="#/" class="link">Books</a>
       </div>
       <div class="vr" />
       <DarkModeToggler />

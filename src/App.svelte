@@ -1,32 +1,26 @@
 <script lang="ts">
-  import { Router, Route } from "svelte-navigator";
+  import Router from "svelte-spa-router";
   import NavBar from "./components/NavBar.svelte";
   import Footer from "./components/Footer.svelte";
   import Books from "./pages/Books.svelte";
   import Quotes from "./pages/Quotes.svelte";
   import Quote from "./pages/Quote.svelte";
+
+  let routes = {
+    "/": Books,
+    "/quotes/:bookId": Quotes,
+    "/quote/:bookId/:quoteId": Quote,
+  };
 </script>
 
 <main>
-  <Router>
-    <div id="page-container">
-      <div id="content-wrap">
-        <NavBar />
-
-        <Route path="books">
-          <Books />
-        </Route>
-        <Route path="quotes/:bookId" component={Quotes} primary={false} />
-        <Route
-          path="quote/:bookId/:quoteId"
-          component={Quote}
-          primary={false}
-        />
-      </div>
-
+  <Router {routes} />
+  <div id="page-container">
+    <div id="content-wrap">
+      <NavBar />
       <Footer />
     </div>
-  </Router>
+  </div>
 </main>
 
 <style>

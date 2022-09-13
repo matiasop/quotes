@@ -1,6 +1,4 @@
 <script lang="ts">
-  import { link } from "svelte-navigator";
-
   import quotesComplete from "../data/quotes_complete.json";
   import booksMetadata from "../data/books_metadata.json";
   import getDataFromJSON from "../utils/getDataFromJSON";
@@ -9,7 +7,8 @@
   import type Metadata from "../types/Metadata";
   import type BookList from "../types/BookList";
 
-  export let bookId: string;
+  export let params;
+  const bookId: string = params.bookId;
   const quotes: Quote[] = quotesComplete[bookId];
   const books: BookList[] = getDataFromJSON<Metadata>(booksMetadata);
   const book: BookList = books.find((b) => b.title === bookId);
@@ -56,7 +55,7 @@
 
   <div class="quotes">
     {#each quotes as quote, index}
-      <a class="quote" href="/quote/{book.title}/{index}" use:link>
+      <a class="quote" href="#/quote/{book.title}/{index}">
         <div>
           <h2 class="title">Quote #{index}</h2>
           <div class="quote-info">
