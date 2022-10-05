@@ -63,54 +63,61 @@
   let filteredBooks: BookList[] = [];
 </script>
 
-<div class="books-container">
-  <h1 class="title">Books</h1>
-  <div class="books-filter">
-    <SearchBar allBooks={books} bind:filteredBooks />
-    <select bind:value={sortBy}>
-      <option value={SortOption.Title}>Title</option>
-      <option value={SortOption.Author}>Author</option>
-      <option value={SortOption.ReadingDate}>Reading Date</option>
-      <option value={SortOption.PublishedDate}>Published Date</option>
-    </select>
-  </div>
-  <div class="reverse">
-    <span id="reverse-span">Reverse:</span>
-    <input id="reverse-input" type="checkbox" bind:checked={reverse} />
-  </div>
-
-  {#key books}
-    <div class="books-links-container" in:fade>
-      {#each filteredBooks as book}
-        <a class="book-link" href="#/quotes/{book.title}">
-          <div class="book-info">
-            <h3 class="book-title">{book.data.book_title}</h3>
-            <p class="book-details">{book.data.author}</p>
-            <p class="book-details">Published: {book.data.published_date}</p>
-          </div>
-          <div class="book-cover-container">
-            {#if book.data.thumbnail !== ""}
-              <img
-                class="book-cover"
-                src={book.data.thumbnail}
-                alt={book.data.book_title}
-              />
-            {:else}
-              <img
-                class="book-cover"
-                src={emptyBookCoverURL}
-                alt={book.data.book_title}
-              />
-            {/if}
-          </div>
-        </a>
-      {/each}
+<div class="main-container">
+  <div class="books-container">
+    <h1 class="title">Books</h1>
+    <div class="books-filter">
+      <SearchBar allBooks={books} bind:filteredBooks />
+      <select bind:value={sortBy}>
+        <option value={SortOption.Title}>Title</option>
+        <option value={SortOption.Author}>Author</option>
+        <option value={SortOption.ReadingDate}>Reading Date</option>
+        <option value={SortOption.PublishedDate}>Published Date</option>
+      </select>
     </div>
-  {/key}
+    <div class="reverse">
+      <span id="reverse-span">Reverse:</span>
+      <input id="reverse-input" type="checkbox" bind:checked={reverse} />
+    </div>
+
+    {#key books}
+      <div class="books-links-container" in:fade>
+        {#each filteredBooks as book}
+          <a class="book-link" href="#/quotes/{book.title}">
+            <div class="book-info">
+              <h3 class="book-title">{book.data.book_title}</h3>
+              <p class="book-details">{book.data.author}</p>
+              <p class="book-details">Published: {book.data.published_date}</p>
+            </div>
+            <div class="book-cover-container">
+              {#if book.data.thumbnail !== ""}
+                <img
+                  class="book-cover"
+                  src={book.data.thumbnail}
+                  alt={book.data.book_title}
+                />
+              {:else}
+                <img
+                  class="book-cover"
+                  src={emptyBookCoverURL}
+                  alt={book.data.book_title}
+                />
+              {/if}
+            </div>
+          </a>
+        {/each}
+      </div>
+    {/key}
+  </div>
 </div>
 
 <style>
   .title {
+    display: flex;
+    justify-content: center;
+  }
+
+  .main-container {
     display: flex;
     justify-content: center;
   }
