@@ -4,6 +4,7 @@
   import quotesComplete from "../data/quotes_complete.json";
   import booksMetadata from "../data/books_metadata.json";
   import getDataFromJSON from "../utils/getDataFromJSON";
+  import emptyBookCoverURL from "../utils/emptyBookCover";
 
   import type Quote from "../types/Quote";
   import type Metadata from "../types/Metadata";
@@ -19,9 +20,6 @@
   const quote: Quote = quotesComplete[bookId][quoteId];
   const books: BookList[] = getDataFromJSON<Metadata>(booksMetadata);
   const book: BookList = books.find((b) => b.title === bookId);
-
-  const emptyBookCoverURL =
-    "https://drupal.nypl.org/sites-drupal/default/files/blogs/sJ3CT4V.gif";
 </script>
 
 <div class="quote-flex">

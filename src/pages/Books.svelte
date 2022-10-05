@@ -6,6 +6,7 @@
   import booksMetadata from "../data/books_metadata.json";
   import getDataFromJSON from "../utils/getDataFromJSON";
   import compareStrings from "../utils/compareStrings";
+  import emptyBookCoverURL from "../utils/emptyBookCover";
 
   import type BookList from "../types/BookList";
   import type Metadata from "../types/Metadata";
@@ -15,9 +16,6 @@
   import SearchBar from "../components/SearchBar.svelte";
 
   onMount(() => window.scrollTo(0, 0));
-
-  const emptyBookCoverURL =
-    "https://drupal.nypl.org/sites-drupal/default/files/blogs/sJ3CT4V.gif";
 
   const getReadingDate = (title: string, quotesComplete): string => {
     const quote: Quote = quotesComplete[title][0];
