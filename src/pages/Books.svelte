@@ -55,8 +55,8 @@
     }
   };
 
-  let reverse = false;
-  let sortBy: SortOption = SortOption.Title;
+  let reverse = true;
+  let sortBy: SortOption = SortOption.ReadingDate;
   let books: BookList[];
   $: books = sortBooks(
     getDataFromJSON<Metadata>(booksMetadata),
@@ -72,9 +72,9 @@
     <div class="books-filter">
       <SearchBar allBooks={books} bind:filteredBooks />
       <select bind:value={sortBy}>
+        <option value={SortOption.ReadingDate}>Reading Date</option>
         <option value={SortOption.Title}>Title</option>
         <option value={SortOption.Author}>Author</option>
-        <option value={SortOption.ReadingDate}>Reading Date</option>
         <option value={SortOption.PublishedDate}>Published Date</option>
       </select>
     </div>
