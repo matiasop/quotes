@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { onMount } from "svelte";
+
   import quotesComplete from "../data/quotes_complete.json";
   import booksMetadata from "../data/books_metadata.json";
   import getDataFromJSON from "../utils/getDataFromJSON";
@@ -8,6 +10,9 @@
   import type BookList from "../types/BookList";
 
   export let params;
+
+  onMount(() => window.scrollTo(0, 0));
+
   const bookId: string = params.bookId;
   const quoteId: string = params.quoteId;
 

@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { onMount } from "svelte";
   import { fade } from "svelte/transition";
 
   import quotesComplete from "../data/quotes_complete.json";
@@ -12,6 +13,8 @@
   import SortOption from "../types/SortOption";
 
   import SearchBar from "../components/SearchBar.svelte";
+
+  onMount(() => window.scrollTo(0, 0));
 
   const emptyBookCoverURL =
     "https://drupal.nypl.org/sites-drupal/default/files/blogs/sJ3CT4V.gif";
