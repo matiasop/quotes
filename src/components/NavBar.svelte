@@ -5,11 +5,11 @@
 <div class="nav-container">
   <nav class="navbar">
     <div class="header-link-wrapper">
-      <a href="/" class="link">Book Quotes</a>
+      <a href="#/" class="link">Book Quotes</a>
     </div>
     <div class="nav-right">
       <div class="link-wrapper">
-        <a href="/" class="link">Books</a>
+        <a href="#/" class="link">Books</a>
       </div>
       <div class="vr" />
       <DarkModeToggler />
