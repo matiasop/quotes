@@ -5,17 +5,34 @@
   import booksMetadata from "../data/books_metadata.json";
   import getDataFromJSON from "../utils/getDataFromJSON";
   import emptyBookCoverURL from "../utils/emptyBookCover";
+  import compareStrings from "../utils/compareStrings";
+  import compareNumbers from "../utils/compareNumbers";
 
   import type Quote from "../types/Quote";
   import type Metadata from "../types/Metadata";
   import type BookList from "../types/BookList";
+  import OrderOption from "../types/OrderBy";
+
+  const orderQuotes = (quotes: Quote[], orderBy: OrderOption): Quote[] => {
+    let orderedQuotes: Quote[] = [];
+    if (orderBy === OrderOption.ReadingDate) {
+      orderedQuotes = quotes.sort((a, b) => compareStrings(a.date, b.date));
+    } else if (orderBy === OrderOption.Position) {
+      orderedQuotes = quotes.sort((a, b) =>
+        compareNumbers(Number(a.initial_pos), Number(b.initial_pos))
+      );
+    }
+    return orderedQuotes;
+  };
 
   export let params;
 
   onMount(() => window.scrollTo(0, 0));
 
+  let orderBy: OrderOption = OrderOption.ReadingDate;
   const bookId: string = params.bookId;
-  const quotes: Quote[] = quotesComplete[bookId];
+  let quotes: Quote[];
+  $: quotes = orderQuotes(quotesComplete[bookId], orderBy);
   const books: BookList[] = getDataFromJSON<Metadata>(booksMetadata);
   const book: BookList = books.find((b) => b.title === bookId);
 </script>
@@ -53,6 +70,13 @@
           alt={book.data.book_title}
         />
       {/if}
+    </div>
+    <div class="select-container">
+      <p>Order By</p>
+      <select bind:value={orderBy}>
+        <option value={OrderOption.ReadingDate}>Reading Date</option>
+        <option value={OrderOption.Position}>Position</option>
+      </select>
     </div>
   </div>
 
@@ -156,5 +180,13 @@
 
   .info {
     margin: 0.5rem 0;
+  }
+
+  .select-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
   }
 </style>
