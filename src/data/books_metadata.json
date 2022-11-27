@@ -186,6 +186,17 @@
         "small_thumbnail": "http://books.google.com/books/content?id=sAgbBQAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
         "thumbnail": "http://books.google.com/books/content?id=sAgbBQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
     },
+    "El Imperio Final (Ed. ilustrada) (Brandon Sanderson)": {
+        "author": "Brandon Sanderson",
+        "book_title": "The Final Empire",
+        "isbn_10": "0575097744",
+        "isbn_13": "",
+        "language": "en",
+        "page_count": 772,
+        "published_date": "2010-03-30",
+        "small_thumbnail": "http://books.google.com/books/content?id=vbsg3vQ8YnMC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=vbsg3vQ8YnMC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
     "El cisne negro (Nassim Nicholas Taleb)": {
         "author": "Nassim Nicholas Taleb",
         "book_title": "El cisne negro. Nueva edición ampliada y revisada",
@@ -637,6 +648,17 @@
         "small_thumbnail": "http://books.google.com/books/content?id=PY7ODwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
         "thumbnail": "http://books.google.com/books/content?id=PY7ODwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
     },
+    "Stay or Leave (The School Of Life)": {
+        "author": "THE SCHOOL OF LIFE.",
+        "book_title": "Stay Or Leave",
+        "isbn_10": "9781912891405",
+        "isbn_13": "",
+        "language": "en",
+        "page_count": 160,
+        "published_date": "2021",
+        "small_thumbnail": "http://books.google.com/books/content?id=i2jezQEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=i2jezQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
     "Stop Reading the News (Rolf Dobelli)": {
         "author": "Rolf Dobelli",
         "book_title": "Stop Reading the News",
@@ -713,6 +735,17 @@
         "published_date": "2009-03-04",
         "small_thumbnail": "http://books.google.com/books/content?id=Lm58AgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
         "thumbnail": "http://books.google.com/books/content?id=Lm58AgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "The Beginning of Infinity (David Deutsch)": {
+        "author": "David Deutsch",
+        "book_title": "The Beginning of Infinity",
+        "isbn_10": "1101549823",
+        "isbn_13": "",
+        "language": "en",
+        "page_count": 496,
+        "published_date": "2011-07-21",
+        "small_thumbnail": "http://books.google.com/books/content?id=jZHanN5_KPgC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=jZHanN5_KPgC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
     },
     "The Birds (Tarjei Vesaas)": {
         "author": "Tarjei Vesaas",
@@ -867,6 +900,28 @@
         "published_date": "2020-09-08",
         "small_thumbnail": "http://books.google.com/books/content?id=xB2ZDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
         "thumbnail": "http://books.google.com/books/content?id=xB2ZDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "Trilogy (Jon Fosse)": {
+        "author": "Jon Fosse",
+        "book_title": "Trilogy",
+        "isbn_10": "9781628973907",
+        "isbn_13": "",
+        "language": "en",
+        "page_count": 200,
+        "published_date": "2022-06-14",
+        "small_thumbnail": "http://books.google.com/books/content?id=7GevzgEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=7GevzgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "Two Wheels Good: The History and Mystery of the Bicycle (Jody Rosen)": {
+        "author": "Jody Rosen",
+        "book_title": "Two Wheels Good",
+        "isbn_10": "0804141509",
+        "isbn_13": "",
+        "language": "en",
+        "page_count": 416,
+        "published_date": "2022-05-24",
+        "small_thumbnail": "http://books.google.com/books/content?id=eNpAEAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=eNpAEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
     },
     "Ulises (James Joyce)": {
         "author": "ResumenExpress.com,",
